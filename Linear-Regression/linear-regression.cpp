@@ -15,10 +15,23 @@ std::vector<std::string> splitCSV(const std::string &s) {
 
 }
 
+double MeanSquaredError(std::vector<double> actual_y, std::vector<double> predicted_y) {
+	if (actual_y.size() != predicted_y.size()){
+		std::cerr << "Sizes of actual and predicted vectors did not match" << std::endl;
+		return 1;
+	}
+	double sum = 0;
+	for (size_t i = 0; i < actual_y.size(); ++i){
+		sum += (actual_y[i] - predicted_y[i];
+	}
+
+	return (1/ actual_y.size()) * sum;
+}
+
 int main()
 {
 	
-	std::string fileName = "Datasets/linear-regression.csv";
+	std::string fileName = "Datasets/linear-regression-data.csv";
 
 	std::ifstream file(fileName);
 
